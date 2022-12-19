@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact LTS</title>
+    <link rel="icon" href="th (1).jpg" type="image/x-icon">
+    <link rel="stylesheet" href="project1-1.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header__h1">Momo Badshah</h1>
+        <nav class="header__nav">
+            <ul class="header__ul">
+                <li>
+                    <a href="project1-1.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="project1-1.html">Menu</a>
+                </li>
+                <li>
+                    <a href="project1-2.html">Hours</a>
+                </li>
+                <li>
+                    <a href="project1-4.html">About</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <section class="hero">
+        <figure>
+            <img src="../momos.jpg" alt="Momo Badshah" title="Momos ready to eat" width="1000px" height="649px">
+            <figcaption class="offscreen">Momo Badshah</figcaption>
+        </figure>
+    </section>
+    <main class="main">
+        <article class="main__article">
+            <h2>Our Location</h2>
+            <address>
+                555 Momo Temptation Lane, Suite T <br>
+                Gotham City, MO 555-555-5555
+                <br><br>
+                Phone: <a href="tel: +5555555555">555-555-5555</a>
+            </address>
+        </article>
+        <hr>
+        <article class="main__article contact">
+            <h2 class="contact__h2">Our Contact Form</h2>
+            <form action="https://httpbin.org.get" method="get" class="contact__form">
+                <fieldset class="contact__fieldset">
+                    <legend class="offscreen">Send us a messege</legend>
+                    <p class="contact__p">
+                        <label class="contact__label" for="name">Name:</label>
+                        <input class="contact__input" type="text" name="name" id="name" placeholder="your name" required>
+                    </p>
+                    <p class="contact__form">
+                        <label class="contact__label" for="email">Email:</label>
+                        <input class="contact__input" type="email" name="email" id="email" placeholder="your email" required>
+                    </p>
+                    <p class="contact__form">
+                        <br><label class="contact__label" for="messege">Your Messege:</label>
+                        <br><textarea class="contact__textarea" name="messege" id="messege" cols="30" rows="10" placeholder="Type your messege here."></textarea>
+                    </p>
+                </fieldset>
+                <button class="contact__button" type="submit">Send</button>
+                <button class="contact__button" type="reset">Reset</button>
+            </form>
+        </article>
+
+    </main>
+    <hr>
+    <footer class="footer">
+        <p>
+            <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+            <span class="nowrap">Momo Badshah</span>
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<%- include('partials/header', { title: 'Contact' }) %>
+
+<article class="main__article">
+    <h2 class="contact__h2">Contact Us</h2>
+    <form action="https://httpbin.org/post" method="post" class="contact__form" novalidate>
+        <fieldset class="contact__fieldset">
+            <p class="contact__p">
+                <label class="contact__label" for="name">Name:</label>
+                <input class="contact__input" type="text" name="name" id="name" required>
+            </p>
+
+            <p class="contact__p">
+                <label class="contact__label" for="email">Email:</label>
+                <input class="contact__input" type="email" name="email" id="email" required>
+            </p>
+
+            <p class="contact__p">
+                <label class="contact__label" for="message">Message:</label>
+                <textarea class="contact__textarea" name="message" id="message" rows="5" required></textarea>
+            </p>
+        </fieldset>
+
+        <button class="contact__button" type="submit">Send</button>
+    </form>
+</article>
+
+<%- include('partials/footer') %>

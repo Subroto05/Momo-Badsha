@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito&display=swap');
+
+/* || RESET */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+button,
+textarea {
+    font: inherit;
+}
+
+/* || VARIABLES */
+:root {
+    --FF: "Nunito", sans-serif;
+    --FF-HEADINGS: "Fugaz One", cursive;
+    --FS: clamp(1rem, 2.2vh, 1.5rem);
+
+    /* JOLLY COLORS */
+    --COLOR-PRIMARY: #ff6347; /* Tomato Red */
+    --COLOR-SECONDARY: #ffeb3b; /* Bright Yellow */
+    --COLOR-ACCENT: #4caf50; /* Green */
+    --COLOR-LIGHT: #fff8e1; /* Soft Light */
+    --COLOR-DARK: #212121;
+
+    --HEADER-BGCOLOR: var(--COLOR-PRIMARY);
+    --HEADER-COLOR: white;
+    --NAV-BGCOLOR: var(--COLOR-SECONDARY);
+    --LINK-COLOR: var(--COLOR-DARK);
+    --LINK-HOVER: var(--COLOR-ACCENT);
+    --FOOTER-BGCOLOR: var(--COLOR-PRIMARY);
+    --FOOTER-COLOR: white;
+}
+
+/* || UTILITY CLASSES */
+.offscreen {
+    position: absolute;
+    left: -10000px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+}
+
+/* || GENERAL STYLES */
+html {
+    scroll-behavior: smooth;
+    font-size: var(--FS);
+    font-family: var(--FF);
+    background-color: var(--COLOR-LIGHT);
+}
+
+body {
+    color: var(--COLOR-DARK);
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: var(--FF-HEADINGS);
+    letter-spacing: 0.05em;
+}
+
+h2, h3 {
+    margin-bottom: 0.5em;
+    color: var(--COLOR-PRIMARY);
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Links */
+a:any-link {
+    color: var(--LINK-COLOR);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--LINK-HOVER);
+    text-decoration: underline;
+}
+
+/* || HEADER */
+.header__h1 {
+    text-align: center;
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--HEADER-COLOR);
+    padding: 1em;
+}
+
+.header__nav {
+    background-color: var(--NAV-BGCOLOR);
+    padding: 1em;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header__ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* || HERO */
+/* || HERO */
+.hero {
+    height: 250px;
+    background-color: var(--COLOR-SECONDARY);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--COLOR-DARK);
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    margin-bottom: 2rem;
+    background-image: url('/images/momos.jpg'); /* Added background image */
+    background-size: cover; /* Ensures image covers the space */
+    background-position: center; /* Keeps the image centered */
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.hero__h2 {
+    color: white; /* Ensures text stands out */
+    z-index: 1; /* Ensures text stays above background */
+}
+
+/* Remove the image from the <figure> element if you prefer a cleaner setup */
+.hero figure {
+    display: none;
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* || MAIN */
+.main {
+    padding: 2em;
+    flex-grow: 1;
+}
+
+.main__article {
+    margin-bottom: 2em;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1.5em;
+    margin-top: 1.5em;
+}
+
+/* || ABOUT */
+.about__trivia details {
+    margin-top: 1em;
+    background-color: var(--COLOR-SECONDARY);
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.about__trivia summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* || CONTACT FORM */
+.contact__h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--COLOR-PRIMARY);
+}
+
+/* Style the form container */
+.contact__form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact__fieldset {
+    border: none; /* Remove default fieldset border */
+    padding: 0;
+}
+
+.contact__p {
+    margin-bottom: 1.5em;
+}
+
+.contact__label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--COLOR-DARK);
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+/* Input fields styling */
+.contact__input,
+.contact__textarea {
+    width: 100%;
+    padding: 0.75em;
+    font-size: 1rem;
+    border: 2px solid var(--COLOR-PRIMARY);
+    border-radius: 10px;
+    background-color: var(--COLOR-LIGHT);
+    color: var(--COLOR-DARK);
+    transition: border-color 0.3s ease;
+}
+
+.contact__input:focus,
+.contact__textarea:focus {
+    outline: none;
+    border-color: var(--COLOR-ACCENT);
+}
+
+/* Textarea specific */
+.contact__textarea {
+    resize: vertical; /* Allows resizing only vertically */
+    min-height: 150px;
+}
+
+/* Submit button styling */
+.contact__button {
+    padding: 1em 2em;
+    font-size: 1.1rem;
+    background-color: var(--COLOR-PRIMARY);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.contact__button:hover {
+    background-color: var(--COLOR-ACCENT);
+}
+
+.contact__button:active {
+    background-color: var(--COLOR-SECONDARY);
+}
+
+
+/* || MENU */
+.menu__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+    padding: 1.5em;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5em;
+}
+
+.menu__header {
+    font-weight: bold;
+    text-align: center;
+    color: var(--COLOR-PRIMARY);
+}
+
+.menu__item {
+    display: contents; /* Ensures the grid structure remains intact */
+}
+
+.menu__column {
+    padding: 1em;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+
+/* || FOOTER */
+.footer {
+    background-color: var(--FOOTER-BGCOLOR);
+    color: var(--FOOTER-COLOR);
+    text-align: center;
+    padding: 1.5em;
+    margin-top: 2rem;
+}
+
+/* || MEDIA QUERIES */
+@media screen and (min-width: 768px) {
+    .header__ul {
+        gap: 3rem;
+    }
+
+    .main {
+        padding: 3em 2em;
+    }
+}
+
+
+/* || ABOUT SECTION ANIMATIONS */
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out both;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-in {
+    animation: slideIn 1s ease-out both;
+    animation-delay: 0.5s;
+}
+
+/* Image scale on hover */
+.about__figure img {
+    transition: transform 0.5s ease;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.about__figure img:hover {
+    transform: scale(1.05);
+}
+
+/* || ABOUT TRIVIA BEAUTIFICATION */
+
+.about__trivia {
+    margin-top: 2rem;
+}
+
+.trivia__list {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0;
+}
+
+.trivia__item {
+    display: flex;
+    align-items: center;
+    background-color: var(--COLOR-SECONDARY);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-weight: bold;
+    color: var(--COLOR-DARK);
+}
+
+.trivia__item:hover {
+    transform: translateY(-5px);
+    background-color: var(--COLOR-ACCENT);
+    color: white;
+}
+
+.trivia__icon {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+}

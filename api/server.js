@@ -2,7 +2,6 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('express');
-const db = require('./db');
 const supabase = require('./db');
 
 const app = express();
@@ -21,33 +20,36 @@ app.get('/', (req, res) => res.render('index'));
 app.get('/about', (req, res) => res.render('about'));
 
 // Fetch menu items from DB and render
+// Fetch menu items from DB and render
 app.get('/menu', async (req, res) => {
   const { data, error } = await supabase
     .from('menu')
     .select('*');
 
   if (error) {
-    return res.status(500).json({ error: error.message });
+    return res.status(500).send('Database query error');
   }
 
-  res.status(200).json(data);
+  // Render the menu.ejs template and pass the data
+  res.render('menu', { menuItems: data });
 });
 app.get('/contact', (req, res) => res.render('contact'));
 
 // Handle feedback form submission
 app.post('/submit-feedback', async (req, res) => {
-    const { name, email, message } = req.body;
-    try {
-        await db.query(
-            'INSERT INTO feedback (name, email, message) VALUES ($1, $2, $3)',
-            [name, email, message]
-        );
-        res.redirect('/contact?success=true');
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Error submitting feedback');
-    }
+  const { name, email, message } = req.body;
+  const { error } = await supabase
+      .from('feedback')
+      .insert([{ name, email, message }]);
+
+  if (error) {
+      console.error(error);
+      return res.status(500).send('Error submitting feedback');
+  }
+
+  res.redirect('/contact?success=true');
 });
+
 
 // 404 handler
 app.use((req, res) => {

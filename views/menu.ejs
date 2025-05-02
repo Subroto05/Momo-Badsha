@@ -2,31 +2,23 @@
 
 <article class="main__article">
     <h2>Our Menu</h2>
-    <section class="menu__container">
-        <div class="menu__item">
+
+    <% if (menuItems.length > 0) { %>
+        <section class="menu__container">
             <div class="menu__header">Item</div>
             <div class="menu__header">Description</div>
             <div class="menu__header">Price</div>
-        </div>
-
-        <div class="menu__item">
-            <div class="menu__column">Pizza</div>
-            <div class="menu__column">Cheesy delight</div>
-            <div class="menu__column">$12</div>
-        </div>
-
-        <div class="menu__item">
-            <div class="menu__column">Pasta</div>
-            <div class="menu__column">Creamy Alfredo</div>
-            <div class="menu__column">$10</div>
-        </div>
-
-        <div class="menu__item">
-            <div class="menu__column">Salad</div>
-            <div class="menu__column">Fresh veggies</div>
-            <div class="menu__column">$8</div>
-        </div>
-    </section>
+        
+            <% menuItems.forEach(item => { %>
+                <div class="menu__column"><%= item.item %></div>
+                <div class="menu__column"><%= item.description %></div>
+                <div class="menu__column">$<%= item.price %></div>
+            <% }); %>
+        </section>
+        
+    <% } else { %>
+        <p>No menu items available.</p>
+    <% } %>
 </article>
 
 <%- include('partials/footer') %>

@@ -286,15 +286,12 @@ a:focus-visible {
     color: var(--COLOR-PRIMARY);
 }
 
-.menu__item {
-    display: contents; /* Ensures the grid structure remains intact */
-}
-
 .menu__column {
     padding: 1em;
     text-align: center;
     font-size: 1.1rem;
 }
+
 
 
 /* || FOOTER */

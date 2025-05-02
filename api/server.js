@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('express');
 const db = require('./db');
-const pool = require('./db');
+const supabase = require('./db');
 
 const app = express();
 
@@ -22,15 +22,16 @@ app.get('/about', (req, res) => res.render('about'));
 
 // Fetch menu items from DB and render
 app.get('/menu', async (req, res) => {
-    try {
-      const result = await pool.query('SELECT * FROM menu ORDER BY id ASC');
-      res.render('menu', { menuItems: result.rows });
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Database error');
-    }
-  });
+  const { data, error } = await supabase
+    .from('menu')
+    .select('*');
 
+  if (error) {
+    return res.status(500).json({ error: error.message });
+  }
+
+  res.status(200).json(data);
+});
 app.get('/contact', (req, res) => res.render('contact'));
 
 // Handle feedback form submission

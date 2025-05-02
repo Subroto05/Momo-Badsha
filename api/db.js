@@ -1,13 +1,14 @@
 // api/db.js
-const { Pool } = require('pg');
 
-// Configure your PostgreSQL connection here
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL, // Recommended for Vercel + production
-    ssl: {
-        rejectUnauthorized: false, // Required for some hosted Postgres services (like Render/Heroku)
-    },
-});
+const { createClient } = require('@supabase/supabase-js');
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+module.exports = supabase;
+
 
 // For local dev (optional fallback)
 // const pool = new Pool({
@@ -18,6 +19,3 @@ const pool = new Pool({
 //     port: 5432,
 // });
 
-module.exports = {
-    query: (text, params) => pool.query(text, params),
-};
